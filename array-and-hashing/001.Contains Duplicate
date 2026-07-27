@@ -1,0 +1,37 @@
+/*
+================================================================================
+Problem    : 217. Contains Duplicate
+Category   : Arrays & Hashing
+Difficulty : Easy
+
+Problem Link:
+https://leetcode.com/problems/contains-duplicate/
+
+Approach:
+- Traverse the array while inserting each element into an unordered_set.
+- If an element already exists in the set, a duplicate has been found.
+- Otherwise, insert the element and continue.
+
+Time Complexity : O(n) average
+Space Complexity: O(n)
+
+================================================================================
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    bool hasDuplicate(vector<int>& nums) {
+        unordered_set<int> seen;
+
+        for (int num : nums) {
+            if (seen.count(num))
+                return true;
+            seen.insert(num);
+        }
+
+        return false;
+    }
+};
